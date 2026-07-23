@@ -6,7 +6,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import ie.hl7.ehds.adapter.convert.ConversionService;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -14,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
  * Tests for {@link ConvertController}.
  */
 @WebMvcTest(ConvertController.class)
+@Import(ConversionService.class)
 class ConvertControllerTest {
 
     @Autowired
