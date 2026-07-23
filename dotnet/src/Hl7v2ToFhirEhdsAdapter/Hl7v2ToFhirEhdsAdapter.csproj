@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Hl7v2ToFhirEhdsAdapter</RootNamespace>
+    <AssemblyName>Hl7v2ToFhirEhdsAdapter</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R4" Version="5.8.1" />
+    <PackageReference Include="NHapi" Version="3.2.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hl7v2ToFhirEhdsAdapter", "src\Hl7v2ToFhirEhdsAdapter\Hl7v2ToFhirEhdsAdapter.csproj", "{ADAPTER-PROJECT-GUID}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hl7v2ToFhirEhdsAdapter.WebApi", "src\Hl7v2ToFhirEhdsAdapter.WebApi\Hl7v2ToFhirEhdsAdapter.WebApi.csproj", "{WEBAPI-PROJECT-GUID}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hl7v2ToFhirEhdsAdapter.Tests", "tests\Hl7v2ToFhirEhdsAdapter.Tests\Hl7v2ToFhirEhdsAdapter.Tests.csproj", "{ADAPTER-TESTS-GUID}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hl7v2ToFhirEhdsAdapter.WebApi.Tests", "tests\Hl7v2ToFhirEhdsAdapter.WebApi.Tests\Hl7v2ToFhirEhdsAdapter.WebApi.Tests.csproj", "{WEBAPI-TESTS-GUID}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADAPTER-PROJECT-GUID}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAPTER-PROJECT-GUID}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAPTER-PROJECT-GUID}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAPTER-PROJECT-GUID}.Release|Any CPU.Build.0 = Release|Any CPU
+		{WEBAPI-PROJECT-GUID}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{WEBAPI-PROJECT-GUID}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{WEBAPI-PROJECT-GUID}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{WEBAPI-PROJECT-GUID}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAPTER-TESTS-GUID}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAPTER-TESTS-GUID}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAPTER-TESTS-GUID}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAPTER-TESTS-GUID}.Release|Any CPU.Build.0 = Release|Any CPU
+		{WEBAPI-TESTS-GUID}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{WEBAPI-TESTS-GUID}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{WEBAPI-TESTS-GUID}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{WEBAPI-TESTS-GUID}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

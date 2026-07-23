@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build Java
+        run: ./scripts/build.sh
+
+      - name: Build .NET
+        run: ./scripts/build-dotnet.sh
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/*.jar
+            dotnet/src/**/bin/Release/**/*.dll
+            dotnet/src/**/bin/Release/**/*.exe
