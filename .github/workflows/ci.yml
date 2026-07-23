@@ -21,6 +21,8 @@ jobs:
           cache: maven
 
       - name: Build and verify
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: ./scripts/build.sh
 
       - name: Upload OWASP Dependency-Check report

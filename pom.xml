@@ -38,7 +38,7 @@
         <hapi.hl7v2.version>2.5.1</hapi.hl7v2.version>
         <checkstyle.version>10.15.0</checkstyle.version>
         <spotbugs.version>4.8.3.1</spotbugs.version>
-        <dependency.check.version>9.0.10</dependency.check.version>
+        <dependency.check.version>12.1.9</dependency.check.version>
     </properties>
 
     <dependencyManagement>
@@ -174,6 +174,7 @@
                 <artifactId>dependency-check-maven</artifactId>
                 <version>${dependency.check.version}</version>
                 <configuration>
+                    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
                     <failBuildOnCVSS>7</failBuildOnCVSS>
                     <suppressionFiles>
                         <suppressionFile>config/dependency-check-suppressions.xml</suppressionFile>
