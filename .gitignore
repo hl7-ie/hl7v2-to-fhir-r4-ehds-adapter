@@ -99,3 +99,11 @@ dependency-check-report.html
 
 # Local test outputs
 test-output/
+
+# .NET build outputs
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
