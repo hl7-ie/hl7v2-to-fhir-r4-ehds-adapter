@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  java-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,3 +36,17 @@ jobs:
         with:
           name: spotbugs-report
           path: target/spotbugs.html
+
+  dotnet-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build and test .NET solution
+        run: ./scripts/build-dotnet.sh

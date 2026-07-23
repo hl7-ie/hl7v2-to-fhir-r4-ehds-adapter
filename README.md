@@ -1,7 +1,7 @@
 # HL7v2 to FHIR R4 EHDS Adapter
 
 [![CI](https://github.com/hl7-ie/hl7v2-to-fhir-r4-ehds-adapter/actions/workflows/ci.yml/badge.svg)](https://github.com/hl7-ie/hl7v2-to-fhir-r4-ehds-adapter/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0%20%7C%20MIT-blue.svg)](./LICENSE)
 
 A reusable, enterprise-ready adapter for converting HL7v2 messages used by the **European Health Data Space (EHDS)** specifications into **FHIR R4** resources and bundles.
 
@@ -14,11 +14,21 @@ A reusable, enterprise-ready adapter for converting HL7v2 messages used by the *
 
 ## Technology Stack
 
+The adapter is implemented in two runtimes:
+
+### Java
 - **Runtime**: Java 17, Spring Boot 3.2
 - **HL7v2 Parsing**: HAPI HL7v2
 - **FHIR Model & Validation**: HAPI FHIR R4
 - **Build**: Apache Maven
 - **Quality**: Checkstyle, SpotBugs, OWASP Dependency-Check
+
+### .NET
+- **Runtime**: .NET 8
+- **HL7v2 Parsing**: nHapi
+- **FHIR Model & Validation**: Firely .NET SDK (Hl7.Fhir.R4)
+- **Build**: `dotnet` CLI / Visual Studio
+- **Testing**: xUnit, FluentAssertions, Microsoft.AspNetCore.Mvc.Testing
 
 ## Supported Messages (Roadmap)
 
@@ -34,6 +44,8 @@ A reusable, enterprise-ready adapter for converting HL7v2 messages used by the *
 
 ## Build
 
+### Java
+
 ```bash
 ./scripts/build.sh
 ```
@@ -44,31 +56,62 @@ Or directly with Maven:
 mvn clean verify
 ```
 
+### .NET
+
+```bash
+./scripts/build-dotnet.sh
+```
+
+Or directly:
+
+```bash
+cd dotnet
+dotnet build -c Release
+dotnet test -c Release
+```
+
 ## Test
+
+### Java
 
 ```bash
 ./scripts/test.sh
 ```
 
+### .NET
+
+```bash
+./scripts/test-dotnet.sh
+```
+
 ## Usage
 
-The project exposes a Spring Boot application. After building:
+### Java
+
+After building:
 
 ```bash
 java -jar target/hl7v2-to-fhir-r4-ehds-adapter-*.jar
 ```
 
-REST endpoints and CLI usage will be documented as they are implemented.
+### .NET
+
+After building:
+
+```bash
+cd dotnet/src/Hl7v2ToFhirEhdsAdapter.WebApi
+dotnet run
+```
 
 ## Project Structure
 
 ```
-├── docs/              # Architecture, deployment, and mapping documentation
-├── config/            # Quality and security tool configurations
-├── scripts/           # Build and test helper scripts
-├── src/main/java/     # Adapter source code
-├── src/main/resources/# Mappings, FHIR profiles, and HL7v2 segment metadata
-└── .github/workflows/ # CI/CD pipelines
+├── docs/                 # Architecture, deployment, and mapping documentation
+├── config/               # Quality and security tool configurations
+├── scripts/              # Build and test helper scripts
+├── src/                  # Java adapter source code and tests
+├── dotnet/               # .NET adapter source code and tests
+└── .github/workflows/    # CI/CD pipelines
 ```
 
 ## Contributing
@@ -77,4 +120,4 @@ Please read [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODEOWNERS](./.github/CODE
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).
+This project is dual-licensed under the [Apache License 2.0](./LICENSE-APACHE) and the [MIT License](./LICENSE-MIT). See [LICENSE](./LICENSE) for details.

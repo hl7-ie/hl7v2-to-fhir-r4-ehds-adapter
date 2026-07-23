@@ -1,18 +1,20 @@
 # Deployment
 
-## Runtime Requirements
+## Java Runtime
+
+### Requirements
 
 - Java Runtime Environment 17 or higher
 - Network access to FHIR terminology services (if validation is enabled)
 
-## Running Locally
+### Running Locally
 
 ```bash
 ./scripts/build.sh
 java -jar target/hl7v2-to-fhir-r4-ehds-adapter-*.jar
 ```
 
-## Configuration
+### Configuration
 
 Configuration is externalized via Spring Boot `application.yml`:
 
@@ -28,9 +30,38 @@ adapter:
     ack-enabled: true
 ```
 
+## .NET Runtime
+
+### Requirements
+
+- .NET 8 SDK or higher
+
+### Running Locally
+
+```bash
+./scripts/build-dotnet.sh
+cd dotnet/src/Hl7v2ToFhirEhdsAdapter.WebApi
+dotnet run
+```
+
+### Configuration
+
+Configuration is externalized via `appsettings.json` and environment variables:
+
+```json
+{
+  "Adapter": {
+    "MappingsDirectory": "mappings",
+    "FhirProfilesDirectory": "fhir/profiles",
+    "Validate": true,
+    "AckEnabled": true
+  }
+}
+```
+
 ## Docker (Planned)
 
-A `Dockerfile` and `docker-compose.yml` will be added for containerized deployment.
+Dockerfiles and a `docker-compose.yml` will be added for containerized deployment of both runtimes.
 
 ## Kubernetes (Planned)
 

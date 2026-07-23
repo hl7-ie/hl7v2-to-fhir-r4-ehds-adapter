@@ -43,6 +43,15 @@ The adapter accepts HL7v2 messages, parses them, applies declarative mappings, a
 - REST endpoints for single-message conversion.
 - CLI for batch/file-based conversion and local testing.
 
+## Dual Runtime
+
+The adapter is maintained in two equivalent implementations to support heterogeneous enterprise environments:
+
+- **Java** (`src/`): Spring Boot application using HAPI FHIR and HAPI HL7v2.
+- **.NET** (`dotnet/`): ASP.NET Core application using Firely .NET SDK and nHapi.
+
+Both implementations share the same conceptual architecture, mapping strategy, and test coverage.
+
 ## Error Handling
 
 - Parsing errors return HL7 NAK messages or HTTP 400 responses.
