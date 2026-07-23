@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <!--
+    Add SpotBugs exclusions here with justification.
+    Example:
+    <Match>
+        <Class name="ie.hl7.ehds.adapter.SomeGeneratedClass"/>
+        <Bug pattern="URF_UNREAD_FIELD"/>
+    </Match>
+    -->
+</FindBugsFilter>

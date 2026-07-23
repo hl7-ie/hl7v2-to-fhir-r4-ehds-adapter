@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: hl7v2-to-fhir-r4-ehds-adapter
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+
+adapter:
+  mappings:
+    directory: classpath:/mappings
+  fhir:
+    profiles:
+      directory: classpath:/fhir/profiles
+    validate: false
+  hl7v2:
+    ack-enabled: true
